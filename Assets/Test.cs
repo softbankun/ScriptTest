@@ -23,17 +23,17 @@ public class Boss
     public void Magic(int mppower)
     {
         // 残りmpを減らす
-        this.mp = this.mp - mppower;
-            if (mp <= 0)
-            {
-                Debug.Log("MPが足りないため魔法が使えない。");
-            }
-            else
-            {
-                Debug.Log("MPを" + mppower + "つかって魔法攻撃をした。残りMPは" + mp + "。");
-            }
+        
+        if (this.mp >= mppower)
+        {
+            this.mp = this.mp - mppower;
+            Debug.Log("MPを" + mppower + "つかって魔法攻撃をした。残りMPは" + mp + "。");
+        }
+        else
+        {
+            Debug.Log("MPが足りないため魔法が使えない。");
+        }
     }
-
 }
 
 public class Test : MonoBehaviour
